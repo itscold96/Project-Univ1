@@ -1,0 +1,12 @@
+.entire-table {
+  display: flex;
+  flex-direction: column;
+  font-size: larger;
+  text-align: center;
+  width: 82%;
+  margin: auto;
+}
+
+.table-white td {
+  background-color: white !important;
+}

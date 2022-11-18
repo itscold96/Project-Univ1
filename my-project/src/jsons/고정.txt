@@ -1,0 +1,3 @@
+// [밑에 2개는 고정]
+//  "BioBank_Institute_Name":   "National BioBank of Korea",
+//  "BioBank_Institute_Phone#": "043-719-6520"
