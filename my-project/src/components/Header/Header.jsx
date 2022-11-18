@@ -18,9 +18,12 @@ function Header() {
         //여기서 user에 유저 정보가 담기고 user.uid로 유저를 특정할 수가 있음
         setIsLoggedIn(true);
         setUserObj(user);
+      } else {
+        setUserObj(null);
+        setIsLoggedIn(false);
       }
     });
-  }, []);
+  }, [userObj]);
 
   const onClickLogout = async () => {
     try {
@@ -40,6 +43,12 @@ function Header() {
 
   const onClickLogo = (e) => {
     navigate('/');
+  };
+
+  const onClickUsageStatus = (e) => {
+    if (isLoggedIn === false) {
+      window.alert('내 정보 사용 이력을 확인하려면 로그인이 필요합니다.');
+    } else navigate('/UsageStatus', { state: JSON.stringify(userObj) });
   };
 
   // 로그인 유무 확인용 log
@@ -107,8 +116,10 @@ function Header() {
                       <span>계약 관리</span> <i className='bi bi-chevron-right'></i>
                     </a>
                     <ul>
-                      <li>
-                        <a href='/UsageStatus'>마이 데이터 사용 현황</a>
+                      <li className='to-usage-status'>
+                        <button className='to-usage-status__btn' onClick={onClickUsageStatus}>
+                          마이 데이터 사용 현황
+                        </button>
                       </li>
                     </ul>
                   </li>
