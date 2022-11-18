@@ -1,7 +1,29 @@
+.icon-boxes p {
+  word-break: keep-all;
+}
+
+.Explanation {
+  background-color: #3291e6 !important;
+}
+
+.icon-box {
+  height: 280px;
+}
+
+.title-font,
+.p-font,
+.icon-white {
+  color: white !important;
+}
+
+.p-box {
+  display: flex;
+  justify-content: center;
+}
+
 .p-font {
   text-align: left;
-  font-size: xx-large;
-  font-weight: 500;
+  font-size: 1.2rem !important;
 }
 
 .submit-btn {

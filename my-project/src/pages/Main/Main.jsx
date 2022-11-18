@@ -22,48 +22,47 @@ function Main() {
         {/* <!-- ======= Why Us Section ======= --> */}
         <section id='why-us' className='why-us'>
           <div className='container'>
-            <div className='row'>
-              <div className='col-lg-4 d-flex align-items-stretch'>
-                <div className='content'>
-                  <h3>Explanation of terms</h3>
-                  <p className='p-font'>
-                    - 역동적 동의체계
-                    <br />
-                    - 퍼미션드 블록체인
-                    <br />- 무결성
-                  </p>
-                </div>
-              </div>
-              <div className='col-lg-8 d-flex align-items-stretch'>
-                <div className='icon-boxes d-flex flex-column justify-content-center'>
-                  <div className='row'>
-                    <div className='col-xl-4 d-flex align-items-stretch'>
-                      <div className='icon-box mt-4 mt-xl-0'>
-                        <i className='bx bx-receipt'></i>
-                        <h4>역동적 동의체계</h4>
-                        <p>
-                          자신이 동의한 데이터가 어디에서 어떻게 사용되고 있는지를 추적하고 언제든 해당 계약을 철회할 수 있는 기능
+            <div className='col-lg-12 d-flex align-items-stretch'>
+              <div className='icon-boxes d-flex flex-column justify-content-center'>
+                <div className='row'>
+                  <div className='col-xl-3 d-flex align-items-stretch'>
+                    <div className='icon-box mt-4 Explanation'>
+                      <i className='bx bi-journal-check icon-white'></i>
+                      <h4 className='title-font'>Terms</h4>
+                      <div className='p-box'>
+                        <p className='p-font'>
+                          - 역동적 동의체계
+                          <br />
+                          - 퍼미션드 블록체인
+                          <br />- 무결성
                         </p>
                       </div>
                     </div>
-                    <div className='col-xl-4 d-flex align-items-stretch'>
-                      <div className='icon-box mt-4 mt-xl-0'>
-                        <i className='bx bx-cube-alt'></i>
-                        <h4>퍼미션드 블록체인</h4>
-                        <p>허가된 개인 또는 기관만 네트워크에 참여할 수 있도록 하는 블록체인</p>
-                      </div>
+                  </div>
+                  <div className='col-xl-3 d-flex align-items-stretch'>
+                    <div className='icon-box mt-4'>
+                      <i className='bx bi-check-all'></i>
+                      <h4>역동적 동의체계</h4>
+                      <p>동의한 데이터를 추적하고 언제든 해당 계약을 철회할 수 있는 기능</p>
                     </div>
-                    <div className='col-xl-4 d-flex align-items-stretch'>
-                      <div className='icon-box mt-4 mt-xl-0'>
-                        <i className='bx bx-images'></i>
-                        <h4>무결성</h4>
-                        <p>데이터나 시스템 등이 손상되지 않고 완전성, 정확성, 일관성을 유지함을 보장하는 특성</p>
-                      </div>
+                  </div>
+                  <div className='col-xl-3 d-flex align-items-stretch'>
+                    <div className='icon-box mt-4'>
+                      <i className='bx bi-boxes'></i>
+                      <h4>퍼미션드 블록체인</h4>
+                      <p>허가된 기관만 네트워크에 참여할 수 있도록 하는 블록체인</p>
+                    </div>
+                  </div>
+                  <div className='col-xl-3 d-flex align-items-stretch'>
+                    <div className='icon-box mt-4'>
+                      <i className='bx bi-check-square'></i>
+                      <h4>무결성</h4>
+                      <p>데이터의 완전성, 정확성, 일관성이 보장되는 특성</p>
                     </div>
                   </div>
                 </div>
-                {/* <!-- End .content--> */}
               </div>
+              {/* <!-- End .content--> */}
             </div>
           </div>
         </section>
@@ -84,7 +83,7 @@ function Main() {
               <ul>
                 <li data-aos='fade-up'>
                   <i className='bx bx-help-circle icon-help'></i>{' '}
-                  <a data-bs-toggle='collapse' className='collapse' data-bs-target='#faq-list-1'>
+                  <a href='# ' data-bs-toggle='collapse' className='collapse' data-bs-target='#faq-list-1'>
                     역동적 동의체계가 필요한 이유는? <i className='bx bx-chevron-down icon-show'></i>
                     <i className='bx bx-chevron-up icon-close'></i>
                   </a>
@@ -99,7 +98,7 @@ function Main() {
 
                 <li data-aos='fade-up' data-aos-delay='100'>
                   <i className='bx bx-help-circle icon-help'></i>{' '}
-                  <a data-bs-toggle='collapse' data-bs-target='#faq-list-2' className='collapsed'>
+                  <a href='# ' data-bs-toggle='collapse' data-bs-target='#faq-list-2' className='collapsed'>
                     퍼미션드 블록체인을 선택한 이유는? <i className='bx bx-chevron-down icon-show'></i>
                     <i className='bx bx-chevron-up icon-close'></i>
                   </a>
@@ -113,7 +112,7 @@ function Main() {
 
                 <li data-aos='fade-up' data-aos-delay='200'>
                   <i className='bx bx-help-circle icon-help'></i>{' '}
-                  <a data-bs-toggle='collapse' data-bs-target='#faq-list-3' className='collapsed'>
+                  <a href='# ' data-bs-toggle='collapse' data-bs-target='#faq-list-3' className='collapsed'>
                     무결성이 보안성을 보장해주는가? <i className='bx bx-chevron-down icon-show'></i>
                     <i className='bx bx-chevron-up icon-close'></i>
                   </a>
@@ -128,7 +127,7 @@ function Main() {
 
                 <li data-aos='fade-up' data-aos-delay='300'>
                   <i className='bx bx-help-circle icon-help'></i>{' '}
-                  <a data-bs-toggle='collapse' data-bs-target='#faq-list-4' className='collapsed'>
+                  <a href='# ' data-bs-toggle='collapse' data-bs-target='#faq-list-4' className='collapsed'>
                     그럼에도 블록체인을 사용하는 이유는? <i className='bx bx-chevron-down icon-show'></i>
                     <i className='bx bx-chevron-up icon-close'></i>
                   </a>
@@ -145,7 +144,7 @@ function Main() {
 
                 <li data-aos='fade-up' data-aos-delay='400'>
                   <i className='bx bx-help-circle icon-help'></i>{' '}
-                  <a data-bs-toggle='collapse' data-bs-target='#faq-list-5' className='collapsed'>
+                  <a href='# ' data-bs-toggle='collapse' data-bs-target='#faq-list-5' className='collapsed'>
                     해당 프로젝트의 한계점과 확장성은 어떠한가? <i className='bx bx-chevron-down icon-show'></i>
                     <i className='bx bx-chevron-up icon-close'></i>
                   </a>
@@ -227,7 +226,7 @@ function Main() {
             <div className='row g-0'>
               <div className='col-lg-3 col-md-4'>
                 <div className='gallery-item'>
-                  <a href='assets/img/gallery/gallery-1.jpg' className='galelry-lightbox'>
+                  <a href='# ' className='galelry-lightbox'>
                     <img src='assets/img/gallery/gallery-1.jpg' alt='' className='img-fluid' />
                   </a>
                 </div>
@@ -235,7 +234,7 @@ function Main() {
 
               <div className='col-lg-3 col-md-4'>
                 <div className='gallery-item'>
-                  <a href='assets/img/gallery/gallery-2.jpg' className='galelry-lightbox'>
+                  <a href='# ' className='galelry-lightbox'>
                     <img src='assets/img/gallery/gallery-2.jpg' alt='' className='img-fluid' />
                   </a>
                 </div>
@@ -243,7 +242,7 @@ function Main() {
 
               <div className='col-lg-3 col-md-4'>
                 <div className='gallery-item'>
-                  <a href='assets/img/gallery/gallery-3.jpg' className='galelry-lightbox'>
+                  <a href='# ' className='galelry-lightbox'>
                     <img src='assets/img/gallery/gallery-3.jpg' alt='' className='img-fluid' />
                   </a>
                 </div>
@@ -251,7 +250,7 @@ function Main() {
 
               <div className='col-lg-3 col-md-4'>
                 <div className='gallery-item'>
-                  <a href='assets/img/gallery/gallery-4.jpg' className='galelry-lightbox'>
+                  <a href='# ' className='galelry-lightbox'>
                     <img src='assets/img/gallery/gallery-4.jpg' alt='' className='img-fluid' />
                   </a>
                 </div>
@@ -259,7 +258,7 @@ function Main() {
 
               <div className='col-lg-3 col-md-4'>
                 <div className='gallery-item'>
-                  <a href='assets/img/gallery/gallery-5.jpg' className='galelry-lightbox'>
+                  <a href='# ' className='galelry-lightbox'>
                     <img src='assets/img/gallery/gallery-5.jpg' alt='' className='img-fluid' />
                   </a>
                 </div>
@@ -267,7 +266,7 @@ function Main() {
 
               <div className='col-lg-3 col-md-4'>
                 <div className='gallery-item'>
-                  <a href='assets/img/gallery/gallery-6.jpg' className='galelry-lightbox'>
+                  <a href='# ' className='galelry-lightbox'>
                     <img src='assets/img/gallery/gallery-6.jpg' alt='' className='img-fluid' />
                   </a>
                 </div>
@@ -275,7 +274,7 @@ function Main() {
 
               <div className='col-lg-3 col-md-4'>
                 <div className='gallery-item'>
-                  <a href='assets/img/gallery/gallery-7.jpg' className='galelry-lightbox'>
+                  <a href='# ' className='galelry-lightbox'>
                     <img src='assets/img/gallery/gallery-7.jpg' alt='' className='img-fluid' />
                   </a>
                 </div>
@@ -283,7 +282,7 @@ function Main() {
 
               <div className='col-lg-3 col-md-4'>
                 <div className='gallery-item'>
-                  <a href='assets/img/gallery/gallery-8.jpg' className='galelry-lightbox'>
+                  <a href='# ' className='galelry-lightbox'>
                     <img src='assets/img/gallery/gallery-8.jpg' alt='' className='img-fluid' />
                   </a>
                 </div>
