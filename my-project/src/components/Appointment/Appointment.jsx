@@ -1,6 +1,8 @@
 import axios from 'axios';
 import AccordionContainer from 'components/Accordion/AccordionContainer';
-import React, { useState } from 'react';
+import { authService } from 'fbase';
+import { onAuthStateChanged } from 'firebase/auth';
+import React, { useEffect, useState } from 'react';
 
 function Appointment() {
   const [name, setName] = useState('');
@@ -12,33 +14,68 @@ function Appointment() {
   const [relation, setRelation] = useState('');
   const [LRPhone, setLRPhone] = useState('');
   const [agencyName, setAgencyName] = useState('');
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  useEffect(() => {
+    onAuthStateChanged(authService, (user) => {
+      if (user) setIsLoggedIn(true);
+      else setIsLoggedIn(false);
+    });
+  }, [name, phone, sex, birth, address, LRName, relation, LRPhone, agencyName]);
 
   function onChangeName(e) {
-    setName(e.target.value);
+    if (isLoggedIn === false) {
+      window.alert('동의서를 작성하려면 로그인이 필요합니다.');
+      setName('');
+    } else setName(e.target.value);
   }
   function onChangePhone(e) {
-    setPhone(e.target.value);
+    if (isLoggedIn === false) {
+      window.alert('동의서를 작성하려면 로그인이 필요합니다.');
+      setPhone('');
+    } else setPhone(e.target.value);
   }
   function onChangeSex(e) {
-    setSex(e.target.value);
+    if (isLoggedIn === false) {
+      window.alert('동의서를 작성하려면 로그인이 필요합니다.');
+      setSex('');
+    } else setSex(e.target.value);
   }
   function onChangeBirth(e) {
-    setBirth(e.target.value);
+    if (isLoggedIn === false) {
+      window.alert('동의서를 작성하려면 로그인이 필요합니다.');
+      setBirth('');
+    } else setBirth(e.target.value);
   }
   function onChangeAdress(e) {
-    setAdress(e.target.value);
+    if (isLoggedIn === false) {
+      window.alert('동의서를 작성하려면 로그인이 필요합니다.');
+      setAdress('');
+    } else setAdress(e.target.value);
   }
   function onChangeLRName(e) {
-    setLRName(e.target.value);
+    if (isLoggedIn === false) {
+      window.alert('동의서를 작성하려면 로그인이 필요합니다.');
+      setLRName('');
+    } else setLRName(e.target.value);
   }
   function onChangeRelation(e) {
-    setRelation(e.target.value);
+    if (isLoggedIn === false) {
+      window.alert('동의서를 작성하려면 로그인이 필요합니다.');
+      setRelation('');
+    } else setRelation(e.target.value);
   }
   function onChangeLRPhone(e) {
-    setLRPhone(e.target.value);
+    if (isLoggedIn === false) {
+      window.alert('동의서를 작성하려면 로그인이 필요합니다.');
+      setLRPhone('');
+    } else setLRPhone(e.target.value);
   }
   function onChangeAgencyName(e) {
-    setAgencyName(e.target.value);
+    if (isLoggedIn === false) {
+      window.alert('동의서를 작성하려면 로그인이 필요합니다.');
+      setAgencyName('');
+    } else setAgencyName(e.target.value);
   }
 
   const onSubmitToServer = async (e) => {
