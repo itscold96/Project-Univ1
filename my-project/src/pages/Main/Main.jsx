@@ -27,7 +27,7 @@ function Main() {
                 <div className='row'>
                   <div className='col-xl-3 d-flex align-items-stretch'>
                     <div className='icon-box mt-4 Explanation'>
-                      <i className='bx bi-journal-check icon-white'></i>
+                      <i className='bx bi-spellcheck icon-white'></i>
                       <h4 className='title-font'>Terms</h4>
                       <div className='p-box'>
                         <p className='p-font'>
@@ -41,9 +41,9 @@ function Main() {
                   </div>
                   <div className='col-xl-3 d-flex align-items-stretch'>
                     <div className='icon-box mt-4'>
-                      <i className='bx bi-check-all'></i>
+                      <i className='bx bi-person-workspace'></i>
                       <h4>역동적 동의체계</h4>
-                      <p>동의한 데이터를 추적하고 언제든 해당 계약을 철회할 수 있는 기능</p>
+                      <p>자신이 동의한 데이터를 추적하고 언제든 해당 계약을 철회할 수 있는 기능</p>
                     </div>
                   </div>
                   <div className='col-xl-3 d-flex align-items-stretch'>
@@ -55,9 +55,9 @@ function Main() {
                   </div>
                   <div className='col-xl-3 d-flex align-items-stretch'>
                     <div className='icon-box mt-4'>
-                      <i className='bx bi-check-square'></i>
+                      <i className='bx bi-ui-checks'></i>
                       <h4>무결성</h4>
-                      <p>데이터의 완전성, 정확성, 일관성이 보장되는 특성</p>
+                      <p>데이터의 정확성과 일관성을 유지하고 보증하는 것</p>
                     </div>
                   </div>
                 </div>
