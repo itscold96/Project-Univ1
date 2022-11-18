@@ -10,7 +10,7 @@ function Footer() {
           <div className='row'>
             <div className='col-lg-3 col-md-6 footer-contact'>
               <h3>대학원 04팀</h3>
-              <a href='#' className='to-top-btn scrollto'>
+              <a href='# ' className='to-top-btn scrollto'>
                 <span className='d-none d-md-inline'>맨 위로</span>
               </a>
             </div>

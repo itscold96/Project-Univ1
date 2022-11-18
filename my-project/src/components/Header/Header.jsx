@@ -20,7 +20,7 @@ function Header() {
         setUserObj(user);
       }
     });
-  }, [userObj]);
+  }, []);
 
   const onClickLogout = async () => {
     try {
@@ -50,7 +50,7 @@ function Header() {
       <header id='header' className='fixed-top'>
         <div className='container d-flex align-items-center'>
           <h1 className='logo me-auto'>
-            <a id='our-team' onClick={onClickLogo}>
+            <a href='# ' onClick={onClickLogo}>
               대학원04팀
             </a>
           </h1>
@@ -63,47 +63,47 @@ function Header() {
                 </a>
               </li>
               <li className='dropdown'>
-                <a href='#'>
+                <a href='# '>
                   <span>포탈 소개</span> <i className='bi bi-chevron-down'></i>
                 </a>
                 <ul>
                   <li>
-                    <a href='#'>사이트 소개</a>
+                    <a href='# '>사이트 소개</a>
                   </li>
                   <li>
-                    <a href='#'>공지사항</a>
+                    <a href='# '>공지사항</a>
                   </li>
                   <li>
                     <a href='#faq'>자주 하는 질문</a>
                   </li>
                   <li>
-                    <a href='#'>QnA</a>
+                    <a href='# '>QnA</a>
                   </li>
                 </ul>
               </li>
               <li className='dropdown'>
-                <a href='#'>
+                <a href='# '>
                   <span>이용 안내</span> <i className='bi bi-chevron-down'></i>
                 </a>
                 <ul>
                   <li>
-                    <a href='#'>이용 정책</a>
+                    <a href='# '>이용 정책</a>
                   </li>
                   <li>
-                    <a href='#'>이용 가이드</a>
+                    <a href='# '>이용 가이드</a>
                   </li>
                 </ul>
               </li>
               <li className='dropdown'>
-                <a href='#'>
+                <a href='# '>
                   <span>마이 페이지</span> <i className='bi bi-chevron-down'></i>
                 </a>
                 <ul>
                   <li>
-                    <a href='#'>개인 정보 조회</a>
+                    <a href='# '>개인 정보 조회</a>
                   </li>
                   <li className='dropdown'>
-                    <a href='#'>
+                    <a href='# '>
                       <span>계약 관리</span> <i className='bi bi-chevron-right'></i>
                     </a>
                     <ul>
