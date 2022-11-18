@@ -11,6 +11,9 @@
 # production
 /build
 
+# 파이어베이스 key 숨김
+.env
+
 # misc
 .DS_Store
 .env.local
