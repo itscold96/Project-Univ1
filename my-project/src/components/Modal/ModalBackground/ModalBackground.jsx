@@ -1,7 +1,7 @@
-import LoginModal from './LoginModal/LoginModal';
-import './ModalBasic.css';
+import LoginModal from '../LoginModal/LoginModal';
+import './ModalBackground.css';
 
-function ModalBasic({ setModalOpen }) {
+function ModalBackground({ setModalOpen }) {
   const closeModal = (e) => {
     if (e.target !== e.currentTarget) return;
     setModalOpen(false);
@@ -15,4 +15,4 @@ function ModalBasic({ setModalOpen }) {
   );
 }
 
-export default ModalBasic;
+export default ModalBackground;

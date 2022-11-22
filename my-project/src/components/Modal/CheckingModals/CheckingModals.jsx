@@ -1,6 +1,21 @@
+import axios from 'axios';
 import React from 'react';
 
-function DialogModals() {
+function CheckingModals({ idx, setChangedUserDataInfo }) {
+  const onClickWithDrawn = async (e) => {
+    // post로 서버에 해당 요청이 거절절되었다고 보내고 다시 수정된 정보를 받음
+    try {
+      const response = await axios.post('http://localhost:3002/상태수정요청보내고새데이터받아오기', {
+        index: idx,
+        status: 'Withdrawn',
+      });
+      console.log('상태 수정 요청 보내고 새 데이터 받아옴', response);
+      setChangedUserDataInfo(response);
+    } catch (e) {
+      console.log('something went wrong!', e);
+    }
+  };
+
   return (
     <>
       {/* dialog modal */}
@@ -24,6 +39,7 @@ function DialogModals() {
                 type='button'
                 className='btn btn-lg btn-link fs-6 text-decoration-none col-6 m-0 rounded-0'
                 data-bs-dismiss='modal'
+                onClick={onClickWithDrawn}
               >
                 닫기
               </button>
@@ -55,4 +71,4 @@ function DialogModals() {
   );
 }
 
-export default DialogModals;
+export default CheckingModals;

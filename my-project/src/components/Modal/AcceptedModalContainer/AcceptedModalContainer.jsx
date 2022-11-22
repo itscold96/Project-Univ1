@@ -1,10 +1,10 @@
 import React from 'react';
-import DialogModals from '../DialogModals';
-import ModalBody from '../ModalBody';
+import CheckingModals from '../CheckingModals/CheckingModals';
+import ModalDetail from '../ModalDetail/ModalDetail';
 
 import './AcceptedModalContainer.css';
 
-function AcceptedModalContainer() {
+function AcceptedModalContainer({ userInfo, idx, setChangedUserDataInfo }) {
   return (
     <>
       {/* <!-- Button trigger modal --> */}
@@ -23,7 +23,7 @@ function AcceptedModalContainer() {
               <button type='button' className='btn-close' data-bs-dismiss='modal' aria-label='Close'></button>
             </div>
             <div className='modal-body'>
-              <ModalBody />
+              <ModalDetail userInfo={userInfo} />
             </div>
             <div className='modal-footer'>
               <button type='button' className='btn btn-danger' data-bs-toggle='modal' data-bs-target='#modalChoice'>
@@ -36,7 +36,7 @@ function AcceptedModalContainer() {
           </div>
         </div>
       </div>
-      <DialogModals />
+      <CheckingModals idx={idx} setChangedUserDataInfo={setChangedUserDataInfo} />
     </>
   );
 }

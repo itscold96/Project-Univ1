@@ -1,12 +1,17 @@
 import React, { useState, useEffect } from 'react';
-import dataJson from '../../jsons/ModalDataSample.json';
 import Paging from 'components/Paging/Paging';
-import './Table.css';
 import RequstedBtnBox from 'components/RequstedBtnBox/RequstedBtnBox';
 import AcceptedModalContainer from 'components/Modal/AcceptedModalContainer/AcceptedModalContainer';
+import axios from 'axios';
+import { useLocation } from 'react-router-dom';
+import './Table.css';
 
 function Table() {
-  const [dataArray, setDataArray] = useState([]); //전체 json이 들어있는 데이터 배열
+  const userObj = JSON.parse(useLocation().state);
+  const [userDataInfoArray, setUserDataInfoArray] = useState([]); //전체 유저 정보 json이 들어있는 배열
+
+  const [changedUserDataInfo, setChangedUserDataInfo] = useState([]); //상태가 변경되어 새로 받아온 json 배열
+
   const [count, setCount] = useState(0); //데이터 총 개수
   const [currentpage, setCurrentpage] = useState(1); //현재페이지 번호
   const [postPerPage] = useState(5); //페이지당 보여줄 데이터 개수
@@ -15,37 +20,57 @@ function Table() {
   const [indexOfLastPost, setIndexOfLastPost] = useState(0); //현재 페이지에서 보여줄 마지막 객체 데이터 인덱스
   const [currentPosts, setCurrentPosts] = useState([]); //현재 페이지에서 보여줄 객체 데이터 배열
 
-  const [isChangeState, setIsChangeState] = useState(false);
-
   useEffect(() => {
-    let reqAndAccs = [];
-    //지금은 dataJson이 더미데이터로 폴더 안에 있지만,
-    //이후에는 서버와의 통신을 통해 렌더링마다 새 json파일을 받아옴
-
-    //요청과 요청 승인된 데이터만 거름
-    for (let x of Object.values(dataJson)) {
-      if (x.ConsentState === 'REQUESTED' || x.ConsentState === 'Accepted') {
-        reqAndAccs.push(x);
+    //유저 uid로 해당 유저에 대한 요청기관 정보 받아오기
+    const getNewData = async () => {
+      try {
+        const reqAndAccs = [];
+        const response = await axios.post('http://localhost:3002/해당유저에대한요청기관정보받아오기', { uid: userObj.uid });
+        console.log('데이터 보내고 받아옴', response);
+        //요청과 요청 승인된 데이터만 거름
+        //response가 배열 내부에 object가 있는 2차원 객체라서 각 object의 인덱스가 해당 object의 key로 들어가 있음
+        for (let x of Object.values(response)) {
+          if (x.ConsentState === 'Request' || x.ConsentState === 'Accepted') {
+            reqAndAccs.push(x);
+          }
+        }
+        setUserDataInfoArray(Object.values(reqAndAccs));
+      } catch (e) {
+        console.log('something went wrong!', e);
       }
-    }
+    };
 
-    setDataArray(Object.values(reqAndAccs)); //2차원 객체라서 key가 인덱스로 들어가 있음
-    setIsChangeState(false); //변화 반영했으므로 다시 바꿔 줌
-  }, [isChangeState]);
+    getNewData();
+  }, [userObj]);
 
   useEffect(() => {
-    setCount(dataArray.length);
+    const changedReqAndAccs = [];
+    //유저 uid로 해당 유저에 대한 수정된 요청기관 정보 받아오기
+    const getChangedData = async () => {
+      if (changedUserDataInfo.length !== 0) {
+        for (let x of Object.values(changedUserDataInfo)) {
+          if (x.ConsentState === 'Request' || x.ConsentState === 'Accepted') {
+            changedReqAndAccs.push(x);
+          }
+        }
+        setUserDataInfoArray(Object.values(changedReqAndAccs));
+      }
+    };
+
+    getChangedData();
+  }, [changedUserDataInfo]);
+
+  useEffect(() => {
+    setCount(userDataInfoArray.length);
     setIndexOfLastPost(currentpage * postPerPage);
     setIndexOfFirstPost(indexOfLastPost - postPerPage);
-    setCurrentPosts(dataArray.slice(indexOfFirstPost, indexOfLastPost));
-  }, [dataArray, currentpage, postPerPage, indexOfLastPost, indexOfFirstPost]);
+    setCurrentPosts(userDataInfoArray.slice(indexOfFirstPost, indexOfLastPost));
+  }, [userDataInfoArray, currentpage, postPerPage, indexOfLastPost, indexOfFirstPost]);
 
   const setPage = (e) => {
     //e에 페지지네이션에서 클릭한 숫자가 넘어감
     setCurrentpage(e);
   };
-
-  console.log(isChangeState);
 
   return (
     <>
@@ -69,9 +94,9 @@ function Table() {
                 <td>{item.MaturityDate.slice(0, 10)}</td>
                 <td>
                   {item.ConsentState === 'REQUESTED' ? (
-                    <RequstedBtnBox setIsChangeState={setIsChangeState} />
+                    <RequstedBtnBox idx={item.idx} setChangedUserDataInfo={setChangedUserDataInfo} />
                   ) : (
-                    <AcceptedModalContainer setIsChangeState={setIsChangeState} />
+                    <AcceptedModalContainer userInfo={item} idx={item.idx} setChangedUserDataInfo={setChangedUserDataInfo} />
                   )}
                 </td>
               </tr>

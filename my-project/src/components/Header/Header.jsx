@@ -1,5 +1,4 @@
-import axios from 'axios';
-import ModalBasic from 'components/Modal/ModalBasic';
+import ModalBasic from 'components/Modal/ModalBackground/ModalBackground';
 import { authService } from 'fbase';
 import { onAuthStateChanged, signOut } from 'firebase/auth';
 import React, { useEffect, useState } from 'react';
@@ -50,12 +49,6 @@ function Header() {
     if (isLoggedIn === false) {
       window.alert('내 정보 사용 이력을 확인하려면 로그인이 필요합니다.');
     } else {
-      try {
-        const response = await axios.post('http://localhost:3002/QueryPartial', { uid: userObj.uid });
-        console.log('데이터 보내고 받아옴', response);
-      } catch (e) {
-        console.log('something went wrong!', e);
-      }
       navigate('/UsageStatus', { state: JSON.stringify(userObj) });
     }
   };
