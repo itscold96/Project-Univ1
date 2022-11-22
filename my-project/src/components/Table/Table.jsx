@@ -38,7 +38,7 @@ function Table() {
     setIndexOfLastPost(currentpage * postPerPage);
     setIndexOfFirstPost(indexOfLastPost - postPerPage);
     setCurrentPosts(dataArray.slice(indexOfFirstPost, indexOfLastPost));
-  }, [dataArray]);
+  }, [dataArray, currentpage, postPerPage, indexOfLastPost, indexOfFirstPost]);
 
   const setPage = (e) => {
     //e에 페지지네이션에서 클릭한 숫자가 넘어감

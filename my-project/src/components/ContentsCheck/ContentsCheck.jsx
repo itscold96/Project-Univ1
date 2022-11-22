@@ -1,4 +1,3 @@
-import react from 'react';
 import './ContentsCheck.css';
 
 function ContentsCheck({ title }) {
