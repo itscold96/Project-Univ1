@@ -3,7 +3,7 @@
 }
 
 .Explanation {
-  background-color: #3291e6 !important;
+  background-color: #4582ec !important;
 }
 
 .icon-box {
@@ -23,7 +23,7 @@
 
 .p-font {
   text-align: left;
-  font-size: 1.2rem !important;
+  font-size: 1.1rem !important;
 }
 
 .submit-btn {
@@ -45,5 +45,5 @@
 }
 
 .to-usage-status__btn:hover {
-  color: #3291e6;
+  color: #4582ec;
 }

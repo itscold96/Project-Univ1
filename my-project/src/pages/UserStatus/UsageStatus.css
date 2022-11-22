@@ -1,3 +1,7 @@
-.usage-status-main {
-  height: 550px;
+.usage-status__title {
+  display: flex;
+  color: #2d3e50;
+  margin-top: 80px;
+  padding: 50px 0px 0px 8%;
+  margin-bottom: 30px;
 }

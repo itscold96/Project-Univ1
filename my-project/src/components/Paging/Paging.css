@@ -28,7 +28,7 @@ ul.pagination li:last-child {
 
 ul.pagination li a {
   text-decoration: none;
-  color: #2fa4e7;
+  color: #4582ec;
   font-size: 1.5rem;
 }
 
@@ -39,5 +39,5 @@ ul.pagination li:hover {
   background-color: #e9ecef;
 }
 ul.pagination li.active {
-  background-color: #2fa4e7;
+  background-color: #4582ec;
 }

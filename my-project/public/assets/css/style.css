@@ -1200,6 +1200,7 @@ section {
 .doctors .member p {
   margin: 10px 0 0 0;
   font-size: 14px;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 .doctors .member .social {
@@ -1288,6 +1289,7 @@ section {
 .faq .faq-list p {
   margin-bottom: 0;
   padding: 10px 0 0 0;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 .faq .faq-list .icon-show {

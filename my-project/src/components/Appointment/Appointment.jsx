@@ -148,7 +148,7 @@ function Appointment() {
               성별
             </label>
             <select className='form-select' id='validationDefault02' value={sex} onChange={onChangeSex} required>
-              <option value='default'>선택해주세요</option>
+              <option value='default'>성별 선택</option>
               <option value='sexM'>남</option>
               <option value='sexF'>여</option>
             </select>
@@ -216,7 +216,7 @@ function Appointment() {
               기증자와 법정대리인과의 관계
             </label>
             <select className='form-select' id='validationDefault06' value={relation} onChange={onChangeRelation} required>
-              <option value='default'>선택해주세요</option>
+              <option value='default'>기증자와 법정대리인과의 관계 선택</option>
               <option value='father'>부</option>
               <option value='mother'>모</option>
               <option value='spouse'>배우자</option>

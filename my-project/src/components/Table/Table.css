@@ -1,10 +1,15 @@
+.table-part {
+  height: 320px;
+}
+
 .entire-table {
   display: flex;
   flex-direction: column;
   font-size: larger;
   text-align: center;
-  width: 82%;
+  width: 84%;
   margin: auto;
+  padding: 0px !important;
 }
 
 .table-white td {
