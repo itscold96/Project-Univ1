@@ -1,16 +1,18 @@
 import axios from 'axios';
 import React from 'react';
 
-function CheckingModals({ idx, setChangedUserDataInfo }) {
+function CheckingModals({ userDataInfoArray, idx, setIsChanged }) {
+
   const onClickWithDrawn = async (e) => {
+    console.log('123123',userDataInfoArray,idx);
     // post로 서버에 해당 요청이 거절절되었다고 보내고 다시 수정된 정보를 받음
     try {
-      const response = await axios.post('http://localhost:3002/상태수정요청보내고새데이터받아오기', {
+      const response = await axios.post('http://localhost:9090/withDrawn', {
         index: idx,
-        status: 'Withdrawn',
+        userDataInfoArray
       });
-      console.log('상태 수정 요청 보내고 새 데이터 받아옴', response);
-      setChangedUserDataInfo(response);
+      console.log('sapdsapdlpsakdpk', response);
+      setIsChanged(true);
     } catch (e) {
       console.log('something went wrong!', e);
     }
@@ -32,6 +34,7 @@ function CheckingModals({ idx, setChangedUserDataInfo }) {
                 className='btn btn-lg btn-link fs-6 text-decoration-none col-6 m-0 rounded-0 border-right'
                 data-bs-toggle='modal'
                 data-bs-target='#modalCheck'
+                onClick={onClickWithDrawn}
               >
                 <strong>예, 철회하겠습니다</strong>
               </button>
@@ -39,7 +42,6 @@ function CheckingModals({ idx, setChangedUserDataInfo }) {
                 type='button'
                 className='btn btn-lg btn-link fs-6 text-decoration-none col-6 m-0 rounded-0'
                 data-bs-dismiss='modal'
-                onClick={onClickWithDrawn}
               >
                 닫기
               </button>

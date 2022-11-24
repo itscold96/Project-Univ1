@@ -1,16 +1,17 @@
 import axios from 'axios';
 import './RequstedBtnBox.css';
 
-function RequstedBtnBox({ idx, setChangedUserDataInfo }) {
+function RequstedBtnBox({ userDataInfoArray, idx, setIsChanged}) {
   const onClickAccept = async (e) => {
     // post로 서버에 해당 요청이 수락되었다고 보내고 다시 수정된 정보를 받음
     try {
-      const response = await axios.post('http://localhost:3002/상태수정요청보내고새데이터받아오기', {
+      const response = await axios.post('http://localhost:9090/Accept', {
         index: idx,
-        status: 'Accepted',
+        userDataInfoArray
       });
-      console.log('상태 수정 요청 보내고 새 데이터 받아옴', response);
-      setChangedUserDataInfo(response);
+      console.log('Confirm accepted new data', response);
+      window.alert('sajdoisadjasoijdoiasjdoi');
+      setIsChanged(true);
     } catch (e) {
       console.log('something went wrong!', e);
     }
@@ -19,13 +20,13 @@ function RequstedBtnBox({ idx, setChangedUserDataInfo }) {
   const onClickreject = async (e) => {
     // post로 서버에 해당 요청이 거절절되었다고 보내고 다시 수정된 정보를 받음
     try {
-      const response = await axios.post('http://localhost:3002/상태수정요청보내고새데이터받아오기', {
+      const response = await axios.post('http://localhost:9090/Reject', {
         index: idx,
-        status: 'Rejected',
+        userDataInfoArray
       });
-      console.log('상태 수정 요청 보내고 새 데이터 받아옴', response);
-
-      setChangedUserDataInfo(response);
+      console.log('Rejected offered request', response);
+      window.alert('sajdoisadjasoijdoiasjdoi');
+      setIsChanged(true);
     } catch (e) {
       console.log('something went wrong!', e);
     }

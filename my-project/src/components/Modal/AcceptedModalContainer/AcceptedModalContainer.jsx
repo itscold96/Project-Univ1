@@ -4,7 +4,7 @@ import ModalDetail from '../ModalDetail/ModalDetail';
 
 import './AcceptedModalContainer.css';
 
-function AcceptedModalContainer({ userInfo, idx, setChangedUserDataInfo }) {
+function AcceptedModalContainer({ userInfo, userDataInfoArray, idx, setIsChanged }) {
   return (
     <>
       {/* <!-- Button trigger modal --> */}
@@ -36,7 +36,7 @@ function AcceptedModalContainer({ userInfo, idx, setChangedUserDataInfo }) {
           </div>
         </div>
       </div>
-      <CheckingModals idx={idx} setChangedUserDataInfo={setChangedUserDataInfo} />
+      <CheckingModals userDataInfoArray={userDataInfoArray} idx={idx} setIsChanged={setIsChanged} />
     </>
   );
 }
