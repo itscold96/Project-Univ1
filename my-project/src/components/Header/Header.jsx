@@ -49,7 +49,7 @@ function Header() {
     if (isLoggedIn === false) {
       window.alert('내 정보 사용 이력을 확인하려면 로그인이 필요합니다.');
     } else {
-      navigate('/UsageStatus', { state: JSON.stringify(userObj) });
+      navigate('/UsageStatus');
     }
   };
 

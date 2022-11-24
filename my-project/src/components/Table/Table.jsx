@@ -3,11 +3,12 @@ import Paging from 'components/Paging/Paging';
 import RequstedBtnBox from 'components/RequstedBtnBox/RequstedBtnBox';
 import AcceptedModalContainer from 'components/Modal/AcceptedModalContainer/AcceptedModalContainer';
 import axios from 'axios';
-import { useLocation } from 'react-router-dom';
 import './Table.css';
+import { onAuthStateChanged } from 'firebase/auth';
+import { authService } from 'fbase';
 
 function Table() {
-  const userObj = JSON.parse(useLocation().state);
+  const [userObj, setUserObj] = useState(null);
   const [userDataInfoArray, setUserDataInfoArray] = useState([]); //전체 유저 정보 json이 들어있는 배열
 
   const [changedUserDataInfo, setChangedUserDataInfo] = useState([]); //상태가 변경되어 새로 받아온 json 배열
@@ -21,6 +22,15 @@ function Table() {
   const [currentPosts, setCurrentPosts] = useState([]); //현재 페이지에서 보여줄 객체 데이터 배열
 
   useEffect(() => {
+    onAuthStateChanged(authService, (user) => {
+      if (user) {
+        //여기서 user에 유저 정보가 담기고 user.uid로 유저를 특정할 수가 있음
+        setUserObj(user);
+      } else {
+        setUserObj(null);
+      }
+    });
+
     //유저 uid로 해당 유저에 대한 요청기관 정보 받아오기
     const getNewData = async () => {
       try {
@@ -29,8 +39,8 @@ function Table() {
         console.log('데이터 보내고 받아옴', response);
         //요청과 요청 승인된 데이터만 거름
         //response가 배열 내부에 object가 있는 2차원 객체라서 각 object의 인덱스가 해당 object의 key로 들어가 있음
-        for (let x of Object.values(response)) {
-          if (x.ConsentState === 'Request' || x.ConsentState === 'Accepted') {
+        for (let x of Object.values(response.data)) {
+          if (x.Recode.currentDocState === '1' || x.Recode.currentDocState === '2') {
             reqAndAccs.push(x);
           }
         }
@@ -41,7 +51,7 @@ function Table() {
     };
 
     getNewData();
-  }, [userObj]);
+  }, [userObj.uid]);
 
   useEffect(() => {
     const changedReqAndAccs = [];
@@ -49,7 +59,7 @@ function Table() {
     const getChangedData = async () => {
       if (changedUserDataInfo.length !== 0) {
         for (let x of Object.values(changedUserDataInfo)) {
-          if (x.ConsentState === 'Request' || x.ConsentState === 'Accepted') {
+          if (x.Recode.currentDocState === '1' || x.Recode.currentDocState === '2') {
             changedReqAndAccs.push(x);
           }
         }
