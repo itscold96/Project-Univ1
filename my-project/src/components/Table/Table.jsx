@@ -10,7 +10,7 @@ import { authService } from 'fbase';
 function Table() {
   const [userUid, setUserUid] = useState(null);
   const [userDataInfoArray, setUserDataInfoArray] = useState([]); //전체 유저 정보 json이 들어있는 배열
-  
+
   const [isChanged, setIsChanged] = useState(false);
   // const [changedUserDataInfo, setChangedUserDataInfo] = useState([]); //상태가 변경되어 새로 받아온 json 배열
 
@@ -41,11 +41,7 @@ function Table() {
         //요청과 요청 승인된 데이터만 거름
         //response가 배열 내부에 object가 있는 2차원 객체라서 각 object의 인덱스가 해당 object의 key로 들어가 있음
         for (let x of Object.values(response.data)) {
-          console.log('AA',x);
-          console.log('BB',x.Record);
-
           if (x.Record.currentDocState === 1 || x.Record.currentDocState === 2) {
-            
             reqAndAccs.push(x);
           }
         }
@@ -59,23 +55,6 @@ function Table() {
     getNewData();
     setIsChanged(false);
   }, [userUid, isChanged]);
-
-  // useEffect(() => {
-  //   const changedReqAndAccs = [];setIsChanged
-  //   //유저 uid로 해당 유저에 대한 수정된 요청기관 정보 받아오기
-  //   const getChangedData = async () => {
-  //     if (changedUserDataInfo.length !== 0) {
-  //       for (let x of Object.values(changedUserDataInfo)) {
-  //         if (x.Record.currentDocState === 1 || x.Record.currentDocState === 2) {
-  //           changedReqAndAccs.push(x);
-  //         }
-  //       }
-  //       setUserDataInfoArray(Object.values(changedReqAndAccs));
-  //     }
-  //   };
-
-  //   getChangedData();
-  // }, [changedUserDataInfo]);
 
   useEffect(() => {
     setCount(userDataInfoArray.length);
@@ -110,15 +89,19 @@ function Table() {
                 <td>{item.Record.Institute}</td>
                 <td>{item.Record.Institute}</td>
                 <td>{item.Record.Institute}</td>
-                
-                
+
                 {/* <td>{item.Usage}</td> */}
                 {/* <td>{item.MaturityDate.slice(0, 10)}</td> */}
                 <td>
                   {item.Record.currentDocState === 1 ? (
-                    <RequstedBtnBox  userDataInfoArray={userDataInfoArray} idx={item.idx} setIsChanged={setIsChanged} />
+                    <RequstedBtnBox userDataInfoArray={userDataInfoArray} idx={item.idx} setIsChanged={setIsChanged} />
                   ) : (
-                    <AcceptedModalContainer userDataInfoArray={userDataInfoArray} userInfo={item.Record} idx={item.idx} setIsChanged={setIsChanged} />
+                    <AcceptedModalContainer
+                      userDataInfoArray={userDataInfoArray}
+                      userInfo={item.Record}
+                      idx={item.idx}
+                      setIsChanged={setIsChanged}
+                    />
                   )}
                 </td>
               </tr>
