@@ -4,7 +4,7 @@ import './ModalDetail.css';
 function ModalDetail({ userInfo }) {
   return (
     <>
-      <div className='modal-container'>
+      {/* <div className='modal-container'>
         <div>
           <span>요청기관: </span>
           <span className='modal-text'>{userInfo.Institute}</span>
@@ -31,6 +31,9 @@ function ModalDetail({ userInfo }) {
             </div>
           </div>
         </div>
+      </div> */}
+      <div>
+        Are you want to withDraw?
       </div>
     </>
   );

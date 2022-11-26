@@ -8,8 +8,8 @@ function AcceptedModalContainer({ userInfo, userDataInfoArray, idx, setIsChanged
   return (
     <>
       {/* <!-- Button trigger modal --> */}
-      <button type='button' className='btn btn-primary btn-sm' data-bs-toggle='modal' data-bs-target='#exampleModal'>
-        보기
+      <button type='button' className='btn btn-danger btn-sm' data-bs-toggle='modal' data-bs-target='#exampleModal'>
+        withDraw
       </button>
 
       {/* <!-- Modal --> */}
@@ -18,9 +18,8 @@ function AcceptedModalContainer({ userInfo, userDataInfoArray, idx, setIsChanged
           <div className='modal-content'>
             <div className='modal-header'>
               <h5 className='modal-title' id='exampleModalLabel'>
-                계약 정보 자세히 보기
+                Agreement to corresponding request
               </h5>
-              <button type='button' className='btn-close' data-bs-dismiss='modal' aria-label='Close'></button>
             </div>
             <div className='modal-body'>
               <ModalDetail userInfo={userInfo} />
