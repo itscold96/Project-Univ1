@@ -23,8 +23,8 @@ function CheckingModals({ userDataInfoArray, idx, setIsChanged }) {
         <div className='modal-dialog' role='document'>
           <div className='modal-content rounded-4 shadow'>
             <div className='modal-body p-4 text-center'>
-              <h5 className='mb-0'>동의를 철회하시겠습니까?</h5>
-              <p className='mb-0'>동의가 철회되면 요청 기관에서 더 이상 귀하의 정보를 사용할 수 없습니다.</p>
+              <h5 className='mb-0'>해당 요청에 대한 동의를 철회하시겠습니까?</h5>
+              <p className='mb-0'>동의가 철회되면 해당 요청으로는 더 이상 귀하의 정보를 사용할 수 없습니다.</p>
             </div>
             <div className='modal-footer flex-nowrap p-0'>
               <button

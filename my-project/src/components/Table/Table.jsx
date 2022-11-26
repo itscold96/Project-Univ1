@@ -103,12 +103,7 @@ function Table() {
                   {item.Record.currentDocState === 1 ? (
                     <RequstedBtnBox userDataInfoArray={userDataInfoArray} idx={item.idx} setIsChanged={setIsChanged} />
                   ) : (
-                    <AcceptedModalContainer
-                      userDataInfoArray={userDataInfoArray}
-                      userInfo={item.Record}
-                      idx={item.idx}
-                      setIsChanged={setIsChanged}
-                    />
+                    <AcceptedModalContainer userDataInfoArray={userDataInfoArray} idx={item.idx} setIsChanged={setIsChanged} />
                   )}
                 </td>
               </tr>
