@@ -13,21 +13,21 @@ function ModalDetail({ userInfo }) {
           <div className='left'>
             <div className='box2'>
               <span className='left2'>부서관리자: </span>
-              <span className='right2 modal-text'>{userInfo.Institute}</span>
+              <span className='right2 modal-text'>{userInfo.Requester}</span>
             </div>
             <div className='box2'>
               <span className='left2'>용도: </span>
-              <span className='right2 modal-text'>{userInfo.Institute}</span>
+              <span className='right2 modal-text'>{userInfo.Usage}</span>
             </div>
           </div>
           <div className='right'>
             <div className='box2'>
               <span className='left2'>요청일자: </span>
-              <span className='right2 modal-text'>{userInfo.Institute}</span>
+              <span className='right2 modal-text'>{userInfo.TimeStamp}</span>
             </div>
             <div className='box2'>
               <span className='left2'>효력말소일: </span>
-              <span className='right2 modal-text'>{userInfo.Institute}</span>
+              <span className='right2 modal-text'>{userInfo.MaturityDate}</span>
             </div>
           </div>
         </div>

@@ -39,13 +39,30 @@ function Table() {
         const response = await axios.post('http://localhost:9090/QueryPartial', { uid: userUid });
         console.log('데이터 보내고 받아옴', response);
         //요청과 요청 승인된 데이터만 거름
-        //response가 배열 내부에 object가 있는 2차원 객체라서 각 object의 인덱스가 해당 object의 key로 들어가 있음
+        //response가 배열 내부에 object가 있는 2차원 객체라서 각 object의 인덱스가 해당 object의 key로 들어가 있음 
+        
         for (let x of Object.values(response.data)) {
+<<<<<<< HEAD
           if (x.Record.currentDocState === 1 || x.Record.currentDocState === 2) {
+=======
+          var mtDate = new Date(x.Record.MaturityDate);
+          var today = new Date();
+
+          if(today > mtDate){
+            try{
+              const checkExpired = await axios.post('http://localhost:9090/Expire', { expiredReq: x.Record });
+            }catch(ee){
+              console.log('something went wrong!', ee);
+            }
+          }
+          else if (x.Record.currentDocState === 1 || x.Record.currentDocState === 2) {
+>>>>>>> develope
             reqAndAccs.push(x);
           }
         }
-        console.log(reqAndAccs);
+        
+        console.log('array of userinfo',reqAndAccs);
+
         setUserDataInfoArray(Object.values(reqAndAccs));
       } catch (e) {
         console.log('something went wrong!', e);
@@ -86,22 +103,38 @@ function Table() {
             <tbody key={index}>
               <tr className='table-light table-white'>
                 <td>{item.Record.Institute}</td>
+<<<<<<< HEAD
                 <td>{item.Record.Institute}</td>
                 <td>{item.Record.Institute}</td>
                 <td>{item.Record.Institute}</td>
 
+=======
+                <td>{item.Record.Usage}</td>
+                <td>{item.Record.TimeStamp.slice(0, 15)}</td>
+                <td>{item.Record.MaturityDate.slice(0, 15)}</td>
+                
+                
+>>>>>>> develope
                 {/* <td>{item.Usage}</td> */}
                 {/* <td>{item.MaturityDate.slice(0, 10)}</td> */}
                 <td>
                   {item.Record.currentDocState === 1 ? (
                     <RequstedBtnBox userDataInfoArray={userDataInfoArray} idx={item.idx} setIsChanged={setIsChanged} />
                   ) : (
+<<<<<<< HEAD
                     <AcceptedModalContainer
                       userDataInfoArray={userDataInfoArray}
                       userInfo={item.Record}
                       idx={item.idx}
                       setIsChanged={setIsChanged}
                     />
+=======
+                    <AcceptedModalContainer 
+                    userDataInfoArray={userDataInfoArray} 
+                    userInfo={item.Record} 
+                    idx={item.idx} 
+                    setIsChanged={setIsChanged} />
+>>>>>>> develope
                   )}
                 </td>
               </tr>
