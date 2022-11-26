@@ -2,18 +2,15 @@ import axios from 'axios';
 import React from 'react';
 
 function CheckingModals({ userDataInfoArray, idx, setIsChanged }) {
-
   const onClickWithDrawn = async (e) => {
-    console.log('123123',userDataInfoArray,idx);
     // post로 서버에 해당 요청이 거절절되었다고 보내고 다시 수정된 정보를 받음
     try {
-      const response = await axios.post('http://localhost:9090/withDrawn', {
+      await axios.post('http://localhost:9090/withDrawn', {
         index: idx,
-        userDataInfoArray
+        userDataInfoArray,
       });
       setIsChanged(true);
-      window.alert('You have withdrawn your previous agreement. The corresponding detail gets removed ffom both parties of said agreement.');
-
+      window.alert('철회가 완료되었습니다.');
     } catch (e) {
       console.log('something went wrong!', e);
     }

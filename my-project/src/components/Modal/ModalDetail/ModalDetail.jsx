@@ -23,11 +23,11 @@ function ModalDetail({ userInfo }) {
           <div className='right'>
             <div className='box2'>
               <span className='left2'>요청일자: </span>
-              <span className='right2 modal-text'>{userInfo.TimeStamp}</span>
+              <span className='right2 modal-text'>{userInfo.TimeStamp.slice(0, 15)}</span>
             </div>
             <div className='box2'>
               <span className='left2'>효력말소일: </span>
-              <span className='right2 modal-text'>{userInfo.MaturityDate}</span>
+              <span className='right2 modal-text'>{userInfo.MaturityDate.slice(0, 15)}</span>
             </div>
           </div>
         </div>
