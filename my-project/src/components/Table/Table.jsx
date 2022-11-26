@@ -39,17 +39,26 @@ function Table() {
         const response = await axios.post('http://localhost:9090/QueryPartial', { uid: userUid });
         console.log('데이터 보내고 받아옴', response);
         //요청과 요청 승인된 데이터만 거름
-        //response가 배열 내부에 object가 있는 2차원 객체라서 각 object의 인덱스가 해당 object의 key로 들어가 있음
+        //response가 배열 내부에 object가 있는 2차원 객체라서 각 object의 인덱스가 해당 object의 key로 들어가 있음 
+        
         for (let x of Object.values(response.data)) {
-          console.log('AA',x);
-          console.log('BB',x.Record);
+          var mtDate = new Date(x.Record.MaturityDate);
+          var today = new Date();
 
-          if (x.Record.currentDocState === 1 || x.Record.currentDocState === 2) {
-            
+          if(today > mtDate){
+            try{
+              const checkExpired = await axios.post('http://localhost:9090/Expire', { expiredReq: x.Record });
+            }catch(ee){
+              console.log('something went wrong!', ee);
+            }
+          }
+          else if (x.Record.currentDocState === 1 || x.Record.currentDocState === 2) {
             reqAndAccs.push(x);
           }
         }
-        console.log(reqAndAccs);
+        
+        console.log('array of userinfo',reqAndAccs);
+
         setUserDataInfoArray(Object.values(reqAndAccs));
       } catch (e) {
         console.log('something went wrong!', e);
@@ -59,23 +68,6 @@ function Table() {
     getNewData();
     setIsChanged(false);
   }, [userUid, isChanged]);
-
-  // useEffect(() => {
-  //   const changedReqAndAccs = [];setIsChanged
-  //   //유저 uid로 해당 유저에 대한 수정된 요청기관 정보 받아오기
-  //   const getChangedData = async () => {
-  //     if (changedUserDataInfo.length !== 0) {
-  //       for (let x of Object.values(changedUserDataInfo)) {
-  //         if (x.Record.currentDocState === 1 || x.Record.currentDocState === 2) {
-  //           changedReqAndAccs.push(x);
-  //         }
-  //       }
-  //       setUserDataInfoArray(Object.values(changedReqAndAccs));
-  //     }
-  //   };
-
-  //   getChangedData();
-  // }, [changedUserDataInfo]);
 
   useEffect(() => {
     setCount(userDataInfoArray.length);
@@ -107,18 +99,22 @@ function Table() {
             <tbody key={index}>
               <tr className='table-light table-white'>
                 <td>{item.Record.Institute}</td>
-                <td>{item.Record.Institute}</td>
-                <td>{item.Record.Institute}</td>
-                <td>{item.Record.Institute}</td>
+                <td>{item.Record.Usage}</td>
+                <td>{item.Record.TimeStamp.slice(0, 15)}</td>
+                <td>{item.Record.MaturityDate.slice(0, 15)}</td>
                 
                 
                 {/* <td>{item.Usage}</td> */}
                 {/* <td>{item.MaturityDate.slice(0, 10)}</td> */}
                 <td>
                   {item.Record.currentDocState === 1 ? (
-                    <RequstedBtnBox  userDataInfoArray={userDataInfoArray} idx={item.idx} setIsChanged={setIsChanged} />
+                    <RequstedBtnBox userDataInfoArray={userDataInfoArray} idx={item.idx} setIsChanged={setIsChanged} />
                   ) : (
-                    <AcceptedModalContainer userDataInfoArray={userDataInfoArray} userInfo={item.Record} idx={item.idx} setIsChanged={setIsChanged} />
+                    <AcceptedModalContainer 
+                    userDataInfoArray={userDataInfoArray} 
+                    userInfo={item.Record} 
+                    idx={item.idx} 
+                    setIsChanged={setIsChanged} />
                   )}
                 </td>
               </tr>

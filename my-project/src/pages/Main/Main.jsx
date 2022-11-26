@@ -27,7 +27,8 @@ function Main() {
                 <div className='row'>
                   <div className='col-xl-3 d-flex align-items-stretch'>
                     <div className='icon-box mt-4 Explanation'>
-                      <i className='bx bi-spellcheck icon-white'></i>
+                      {/* <i className='bx bi-spellcheck icon-white'></i> */}
+                      <br />
                       <h4 className='title-font'>Terms</h4>
                       <div className='p-box'>
                         <p className='p-font'>

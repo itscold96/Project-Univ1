@@ -11,8 +11,9 @@ function CheckingModals({ userDataInfoArray, idx, setIsChanged }) {
         index: idx,
         userDataInfoArray
       });
-      console.log('sapdsapdlpsakdpk', response);
       setIsChanged(true);
+      window.alert('You have withdrawn your previous agreement. The corresponding detail gets removed ffom both parties of said agreement.');
+
     } catch (e) {
       console.log('something went wrong!', e);
     }
